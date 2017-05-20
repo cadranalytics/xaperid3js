@@ -22,7 +22,7 @@ D3Gauge <- function(value, color1= "#007EA7", color2= "#d9d9d9",title="Title of 
     x,
     width = width,
     height = height,
-    package = 'xaperi-d3js',
+    package = 'xaperid3js',
     elementId = elementId
   )
 }
@@ -45,7 +45,7 @@ D3Gauge <- function(value, color1= "#007EA7", color2= "#d9d9d9",title="Title of 
 #'
 #' @export
 D3GaugeOutput <- function(outputId, width = '100%', height = '400px'){
-  htmlwidgets::shinyWidgetOutput(outputId, 'D3Gauge', width, height, package = 'xaperi-d3js')
+  htmlwidgets::shinyWidgetOutput(outputId, 'D3Gauge', width, height, package = 'xaperid3js')
 }
 
 #' @rdname D3item-shiny
