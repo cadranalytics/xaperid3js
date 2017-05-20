@@ -1,0 +1,6 @@
+dependencies:
+- name: d3
+  version: 3.5.16
+  src: htmlwidgets
+  script: ./lib/d3.v3.min.js
+  style: ./lib/d3test.css
