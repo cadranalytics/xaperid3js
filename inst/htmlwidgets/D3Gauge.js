@@ -46,7 +46,7 @@ HTMLWidgets.widget({
           .append("div")
           .classed("svg-container", true)
           .append("svg")
-          .style("padding", margin.top + " " + margin.right +  " " + margin.bottom +  " " + margin.left )
+          .style("padding", margin.top + "px " + margin.right +  "px " + margin.bottom +  "px " + margin.left + "px")
           .attr("preserveAspectRatio", "xMidYMid meet")
           .attr("viewBox", "0 0 " + ( width ) + " " + ( height  ) )
           .classed("svg-content-responsive", true);
