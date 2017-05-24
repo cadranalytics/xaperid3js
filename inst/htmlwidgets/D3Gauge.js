@@ -49,13 +49,15 @@ HTMLWidgets.widget({
           .style("padding", margin.top + "px " + margin.right +  "px " + margin.bottom +  "px " + margin.left + "px")
           .attr("preserveAspectRatio", "xMidYMid meet")
           .attr("viewBox", "0 0 " + ( width ) + " " + ( height  ) )
-          .classed("svg-content-responsive", true);
+          .classed("svg-content-responsive", true)
+          .style("padding-bottom", "50px;");
           
         //  Append the svg for the title division 
         svgTitle = d3.select(el)
         .append("div")
         .classed("svg-gauge-title-container", true)
-        .append("svg");
+        .append("svg")
+        .classed("svg-content-responsive", true);
         
         // Calculate sizes based on width and height.  
         var outerRadius = width/2, 
