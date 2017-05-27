@@ -7,8 +7,6 @@ HTMLWidgets.widget({
 
     var svgChart = null;
     var svgTitle = null;
-    var titleText;
-    var titleText2;
     
     var fontSize;
     var τ;
@@ -34,8 +32,8 @@ HTMLWidgets.widget({
         width  = Math.min(width - margin.left - margin.right,  
                           height- margin.top - margin.bottom); 
         
-        titleText1 = x.title1;
-        titleText2 = x.title2;
+        el.titleText1 = x.title1;
+        el.titleText2 = x.title2;
         
         // Calculate width and height of the gauge chart.
         width  = Math.min(width, height);
@@ -90,7 +88,7 @@ HTMLWidgets.widget({
          title1 = svgTitle.append("text") 
          .classed("svg-gauge-title", true)
          .attr("id","titleText1")
-        .text(titleText1) 
+        .text(el.titleText1) 
         .attr("text-anchor", "middle") 
         .style("font-size",'16px') 
         .attr("dy",20)
@@ -100,7 +98,7 @@ HTMLWidgets.widget({
          title2 = svgTitle.append("text") 
          .classed("svg-gauge-title", true)
          .attr("id","titleText2")
-        .text(titleText2) 
+        .text(el.titleText2) 
         .attr("text-anchor", "middle") 
         .style("font-size",'16px') 
         .attr("dy",38)
@@ -136,11 +134,11 @@ HTMLWidgets.widget({
 
       resize: function(width, height) {
 
-        title1.remove();
-        title2.remove();
+        d3.select(el).select("#titleText1").remove();
+        d3.select(el).select("#titleText2").remove();
          title1 = svgTitle.append("text") 
          .classed("svg-gauge-title", true)
-        .text(titleText1)
+        .text(el.titleText1)
         .attr("id","titleText1")
         .attr("text-anchor", "middle") 
         .style("font-size",'16px') 
@@ -149,7 +147,7 @@ HTMLWidgets.widget({
         
          title2 = svgTitle.append("text") 
          .classed("svg-gauge-title", true)
-        .text(titleText2)
+        .text(el.titleText2)
         .attr("id","titleText2")
         .attr("text-anchor", "middle") 
         .style("font-size",'16px') 
