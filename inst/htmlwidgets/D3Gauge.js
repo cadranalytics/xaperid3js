@@ -20,6 +20,9 @@ HTMLWidgets.widget({
 
       renderValue: function(x) {
 
+        el.titleText1 = x.title1;
+        el.titleText2 = x.title2;
+
         if(!svgChart)
         {
         // Hard-coded, also in the CSS.
@@ -31,9 +34,6 @@ HTMLWidgets.widget({
         var margin  = { left: 20, top: 20, right: 20, bottom: titleHeight }; 
         width  = Math.min(width - margin.left - margin.right,  
                           height- margin.top - margin.bottom); 
-        
-        el.titleText1 = x.title1;
-        el.titleText2 = x.title2;
         
         // Calculate width and height of the gauge chart.
         width  = Math.min(width, height);
@@ -111,6 +111,14 @@ HTMLWidgets.widget({
         .attr("d", arc)
         .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
         }
+        else
+        {
+    d3.select(el).select("#titleText1")
+        .text(el.titleText1);
+        
+     d3.select(el).select("#titleText2")
+        .text(el.titleText2); 
+        }
         
         // This is the transition function
         foreground.transition()  
@@ -134,23 +142,11 @@ HTMLWidgets.widget({
 
       resize: function(width, height) {
 
-        d3.select(el).select("#titleText1").remove();
-        d3.select(el).select("#titleText2").remove();
-         title1 = svgTitle.append("text") 
-         .classed("svg-gauge-title", true)
-        .text(el.titleText1)
-        .attr("id","titleText1")
-        .attr("text-anchor", "middle") 
-        .style("font-size",'16px') 
+        d3.select(el).select("#titleText1")
         .attr("dy",20)
         .attr("dx",width/2);
         
-         title2 = svgTitle.append("text") 
-         .classed("svg-gauge-title", true)
-        .text(el.titleText2)
-        .attr("id","titleText2")
-        .attr("text-anchor", "middle") 
-        .style("font-size",'16px') 
+     d3.select(el).select("#titleText2")
         .attr("dy",38)
         .attr("dx",width/2);
 
