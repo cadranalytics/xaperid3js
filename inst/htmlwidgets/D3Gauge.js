@@ -132,7 +132,8 @@ HTMLWidgets.widget({
                     var interpolate = d3.interpolate(d.endAngle, newAngle); 
                     return function(t) { 
                           d.endAngle = interpolate(t); 
-                          d3.select(el).select("text").text(Math.round((d.endAngle/τ)*1000)/10+'%'); 
+                          var number = Math.round((d.endAngle/τ)*1000)/10;
+                          d3.select(el).select("text").text(number.toFixed(1)+'%'); 
                           return arc(d); 
                     }; 
               }); 
